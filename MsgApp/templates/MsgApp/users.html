@@ -1,0 +1,31 @@
+{%  load staticfiles %}
+<link rel="stylesheet" tyoe="text/css" href="{% static 'MsgApp/style.css' %}" />
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Watsapp Users</title>
+</head>
+<body>
+
+
+    {% csrf_token %}
+
+<h1>Users:</h1>
+<ul>
+
+{% if users_list %}
+{% for user in users_list %}
+        <li><a href="/watsapp/{{ user.id }}/">{{ user.get_full_name}}</a></li>
+    <br>
+{% endfor %}
+{% endif %}
+</ul>
+    <br> <br> <br>
+<a href="0/logout">logout</a>
+
+{% block content %} {% endblock %}
+</body>
+</html>

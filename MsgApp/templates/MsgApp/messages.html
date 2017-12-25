@@ -1,0 +1,48 @@
+{%  load staticfiles %}
+<link rel="stylesheet" tyoe="text/css" href="{% static 'MsgApp/style.css' %}" />
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Messages</title>
+</head>
+<body>
+<h1>Messages From {{ user_fullname.get_full_name }}:</h1>
+{% if messages_list %}
+{% for aMessage in messages_list %}
+    {% if aMessage.sender == user_fullname %}
+        <br><recv><br>{{ aMessage }}</recv><br>
+    {% else %}
+        <br><sent>{{ aMessage }}</sent><br>
+    {% endif %}
+    {% endfor %}
+{% else %}
+    <noMessages> No Messages </noMessages>
+{% endif %}
+<br>
+</ul>
+<form method="post" action="send/">
+    {% csrf_token %}
+
+<tr>
+    <tr><td><input type="text" name="new_message" required/></td></tr>
+    <input type="submit" class="btn" value="send"/>
+    <input type="hidden" name="passer" value="{{ new_message }} "/>
+</tr>
+
+
+
+</form>
+<br>
+<a href="logout" >
+        {% csrf_token %}
+logout</a>
+
+{% block content %} {% endblock %}
+
+</body>
+</html>

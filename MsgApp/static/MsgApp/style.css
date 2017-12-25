@@ -1,0 +1,12 @@
+li a{color: #39a3d1
+}
+h1 { color: #b7e9ff }
+ul {border:hidden; border-bottom-width: 300px}
+li {color:cornflowerblue}
+noMessages {color:red}
+label {color:white}
+/*html {background-image: url("http://www.planwallpaper.com/static/images/black_background_wood-wallpaper-1920x1200.jpg")}*/
+html {background-image: url("https://wallpapercave.com/wp/vcN105S.png") ; background-size:90%}
+sent {color:mediumspringgreen}
+recv {color:darkturquoise}
+input.text {width: 50%}
